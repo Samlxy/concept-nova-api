@@ -1,6 +1,6 @@
 **NOTE:** This is the completion of concept nova's frontend developer test
 # Usage
-- The interface utilizes all the endpoints available in the Concept Nova FCS API Documentation: https://fcs.concept-nova.com/docs/
+- The interface utilizes all the endpoints available in Concept Nova FCS API Documentation: https://fcs.concept-nova.com/docs/
 - Authentication details - **Email:** api@concept-nova.com **Password:** Concept@Nova.API
 - Users can: **Sign in** 
 - **View a list of sites** 
