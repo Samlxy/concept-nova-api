@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Form from './App';
+import Dashboard from './component/Dashboard';
 import reportWebVitals from './reportWebVitals';
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Form />
+      <Route path='/' component={Form} />
+      <Route path='/dashboard' component={Dashboard} />
+    </Router>  
   </React.StrictMode>,
   document.getElementById('root')
 );

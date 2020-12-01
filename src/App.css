@@ -1,6 +1,6 @@
 #form {
   width: 24em;
-  height: 20em;
+  height: 19em;
   margin: auto;
   border: none;
   outline: none;
@@ -36,9 +36,10 @@ h2 {
 
 #sign-in {
   background-color: #59abd3;
-  padding: 0.5em 10em;
+  padding: 1em 8.5em;
   color: #ffffff;
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: bold;
   border-radius: 12px;
   border: none;
   outline: none;
@@ -46,41 +47,17 @@ h2 {
   cursor: pointer;
 }
 
+#sign-in:hover {
+  background-color: navy; 
+}
+
 #sign-in:active {
-  background-color: navy;
-  border: 1px solid white;
+  background-color: #59abd3;
+  border: 2px solid #ffffff;
 }
 
-.list-sites-tanks {
-  background-color: #0d78d5;
-  padding: 0.5em 3.3em;
-  color: #ffffff;
-  font-size: 14px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  margin-top: 1em;
-  cursor: pointer;
-}
-
-.list-sites-tanks:active {
-  background-color: purple;
-  border: 1px solid white;
-}
-
-#details {
-  background-color:  navy;;
-  padding: 0.5em 9em;
-  color: #ffffff;
-  font-size: 14px;
-  border-radius: 12px;
-  border: none;
-  outline: none;
-  margin-top: 1em;
-  cursor: pointer;
-} 
-
-#details:active {
-  background-color:  #0d78d5;
-  border: 1px solid white;
+#log-error {
+  color: red;
+  font-style: italic;
+  padding-right: 0em;
 }
