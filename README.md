@@ -2,7 +2,7 @@
 # Usage
 - The interface utilizes all the endpoints available in Concept Nova FCS API Documentation: https://fcs.concept-nova.com/docs/
 - Authentication details - **Email:** api@concept-nova.com **Password:** Concept@Nova.API
-- Users can: **Sign in** 
+- Users can: **Sign in/Sign out** 
 - **View a list of sites** 
 - **View a list of tanks under each site** 
 - **View the details of a tank**
