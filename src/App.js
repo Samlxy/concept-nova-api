@@ -1,19 +1,19 @@
 import React, { Component } from 'react';
-import conceptNova from './component/concept-nova-logo.jpg';  
+import { Redirect, Route } from 'react-router-dom';
+import conceptNova from '../src/components/concept-nova-logo.jpg';  
+import Dashboard from '../src/components/DashBoard/Dashboard';
 import './App.css';
-import { getUserToken, setUserToken } from './component/storage';
-import { Redirect } from 'react-router-dom';
+import { setUserToken } from '../src/components/storage';
 
 
 class Form extends Component {
     constructor(props) {
         super()
         this.state = { 
-            isSignedIn: false,
-            logInParams: {
-                email: '', 
-                password: ''
-            }
+            email: '', 
+            password: '',
+            isSignedIn: false
+
         }; 
     };
 
@@ -58,8 +58,13 @@ class Form extends Component {
     }         
 
     render () { 
-        if(getUserToken('authToken')) {
-            return <Redirect to='/dashboard' />
+        if(this.state.isSignedIn) {
+            return (
+                <div>
+                    <Redirect to='/dashboard' />
+                    <Route path='/' component={Dashboard} />
+                </div>
+            )
         }
         return (
             <div id='form'>

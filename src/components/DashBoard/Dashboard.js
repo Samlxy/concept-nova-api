@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
+import { Redirect, Route } from 'react-router-dom';
+import Form from '../../App';
 import './Dashboard.css';
-import { getUserToken, removeUserToken } from './storage';
-import { setSiteId, getSiteId } from './storage';
-import { setTankId, getTankId } from './storage';
+import { getUserToken, removeUserToken } from '../storage';
+import { setSiteId, getSiteId } from '../storage';
+import { setTankId, getTankId } from '../storage';
 
 
 class Dashboard extends Component {
@@ -71,7 +72,8 @@ class Dashboard extends Component {
         }); 
     };
 
-    signOut = () => {
+    signOut = (event) => {
+        event.preventDefault();
         //unassign token from authenticated user
         removeUserToken('authToken');
         this.setState({isSignedOut: true});
@@ -79,7 +81,12 @@ class Dashboard extends Component {
 
     render() {
       if(this.state.isSignedOut) {
-        return <Redirect to='/' />
+        return (
+            <div>
+                <Redirect to='/' />
+                <Route path='/' component={Form} /> 
+            </div>
+        )
         }
         return(
             <div id='nav-container'>
