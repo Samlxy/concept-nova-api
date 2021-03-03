@@ -34,6 +34,12 @@ h2 {
   padding-left: 1em;
 }
 
+.input-style:focus {
+  background-color: #e8f0fe;
+  border: 1px solid #000000;
+  outline: none;
+} 
+
 #sign-in {
   background-color: #59abd3;
   padding: 1em 8.5em;
@@ -60,4 +66,30 @@ h2 {
   color: red;
   font-style: italic;
   padding-right: 0em;
+  padding-bottom: 1em;
+}
+
+#logout-notice {
+  color: green;
+  font-style: italic;
+  margin-left: 50em;
+  margin-top: -20em;
+  -webkit-animation: cssAnimation 5s forwards; 
+  animation: cssAnimation 5s forwards;
+}
+
+@keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      overflow:hidden;
+  }
+}
+
+@-webkit-keyframes cssAnimation {
+  to {
+      width:0;
+      height:0;
+      visibility:hidden;
+  }
 }

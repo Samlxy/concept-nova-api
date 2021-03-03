@@ -3,13 +3,11 @@ import { Redirect, Route } from 'react-router-dom';
 import Form from '../../App';
 import './Dashboard.css';
 import { getUserToken, removeUserToken } from '../storage';
-import { setSiteId, getSiteId } from '../storage';
-import { setTankId, getTankId } from '../storage';
 
 
 class Dashboard extends Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             isSignedOut: false
         };
@@ -18,63 +16,21 @@ class Dashboard extends Component {
     viewSitesList = () => {  
         const authToken = getUserToken('authToken');
         console.log('token: ', authToken);
-
         window.open(`https://fcs.concept-nova.com/api/v1/sites/?token=${authToken}`);
-
-        fetch(`https://fcs.concept-nova.com/api/v1/sites/?token=${authToken}`)
-        .then(response => response.json())
-        .then(response => { 
-            console.log(response);
-
-        // capture site_id
-        setSiteId(response.message[0].site_id);
-        })
-        .catch(err => { 
-            console.log(err) 
-        });
     };
 
     viewTanksList = () => {
         const authToken = getUserToken('authToken');
-        const siteID = getSiteId('siteID');
-        console.log('site_id: ', siteID);
-
-        window.open(`https://fcs.concept-nova.com/api/v1/sites/${siteID}?token=${authToken}`);
-
-        fetch(`https://fcs.concept-nova.com/api/v1/sites/${siteID}?token=${authToken}`) 
-        .then(response => response.json())
-        .then(response => { 
-            console.log(response);
-            
-        // capture tank_id
-        setTankId(response.message[0].tank_id); 
-        })
-        .catch(err => { 
-            console.log(err) 
-        }); 
+        window.open(`https://fcs.concept-nova.com/api/v1/sites/2?token=${authToken}`);
     };
 
     viewTankDetails = () => {
         const authToken = getUserToken('authToken');
-        const siteID = getSiteId('siteID');
-        const tankID = getTankId('tankID');
-        console.log('tank_id: ', tankID);
-
-        window.open(`https://fcs.concept-nova.com/api/v1/sites/${siteID}/${tankID}?token=${authToken}`);
-
-        fetch(`https://fcs.concept-nova.com/api/v1/sites/${siteID}/${tankID}?token=${authToken}`) 
-        .then(response => response.json())
-        .then(response => { 
-            console.log(response);
-        })
-        .catch(err => { 
-            console.log(err) 
-        }); 
+        window.open(`https://fcs.concept-nova.com/api/v1/sites/2/168092057?token=${authToken}`);
     };
 
-    signOut = (event) => {
-        event.preventDefault();
-        //unassign token from authenticated user
+    signOut = () => {
+     // unassign token from authenticated user
         removeUserToken('authToken');
         this.setState({isSignedOut: true});
     };
@@ -84,10 +40,10 @@ class Dashboard extends Component {
         return (
             <div>
                 <Redirect to='/' />
-                <Route path='/' component={Form} /> 
+                <Route component={Form} /> 
+                <div id='logout-notice'>You are Signed Out!</div>
             </div>
-        )
-        }
+        )};
         return(
             <div id='nav-container'>
                <h3>Welcome to Concept Nova's FCS - Fuel Control System </h3>
@@ -97,10 +53,10 @@ class Dashboard extends Component {
                     <li className='nav-item' onClick={this.viewTankDetails}>Tank Details</li>
                 </ul>   
                     <button className='sign' id='sign-out' onClick={this.signOut}>Sign Out</button>
-                    </div>
-            )
-        }
-    }
+            </div>
+        );
+    };
+};
     
     export default Dashboard;
                 

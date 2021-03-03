@@ -8,12 +8,11 @@ import { setUserToken } from '../src/components/storage';
 
 class Form extends Component {
     constructor(props) {
-        super()
+        super(props)
         this.state = { 
             email: '', 
             password: '',
             isSignedIn: false
-
         }; 
     };
 
@@ -54,18 +53,18 @@ class Form extends Component {
             this.setState({isSignedIn: true});
         } else {
             document.getElementById('log-error').innerHTML = 'Invalid Email or Password';
-        }
-    }         
+        };
+    };       
 
     render () { 
         if(this.state.isSignedIn) {
             return (
                 <div>
                     <Redirect to='/dashboard' />
-                    <Route path='/' component={Dashboard} />
+                    <Route component={Dashboard} />
                 </div>
-            )
-        }
+            );
+        };
         return (
             <div id='form'>
                 <img src={conceptNova} alt='concept-nova-logo'/>
