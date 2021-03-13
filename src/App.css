@@ -93,3 +93,47 @@ h2 {
       visibility:hidden;
   }
 }
+
+@media only screen and (max-width : 1020px) {
+
+  #form {
+    width: 19em;
+    height: 14em;
+  }
+
+  img {
+    float: left;
+    padding: 1em 1.4em;
+    margin-top: -9em;
+    width: 6em;
+    height: 4em;
+  }
+  
+  h2 {
+    font-weight: 400;
+    font-size: 20px;
+  }
+  
+  .input-style {
+    height: 2.3em;
+    width: 16em;
+    font-size: 1em;
+  }
+  
+  #sign-in {
+    font-size: 15px;
+    padding: 0.8em 7.5em;
+    margin-top: 1em;
+  }
+
+  #navigation {
+    height: 2em;
+    margin: 0em 1em;
+    padding-top: 1em;
+  }   
+
+  li.nav-item {
+    margin: 2em;
+    font-size: 13px;
+  }
+}
